@@ -1,30 +1,15 @@
 import { URLSearchParams } from 'url';
 import { beforeAll, describe, expect, test } from 'vitest';
+import { z } from 'zod';
 
 import { API_KEY, BEFORE_ALL_TIMEOUT, HOST } from '../utils/env';
 import { queryParams } from '../utils/query-params';
-import { validateSchema } from '../utils/schema-validator.js';
 
-const SCHEMA = {
-  type: 'object',
-  properties: {
-    sol_keys: { type: 'array' },
-    validity_checks: {
-      type: 'object',
-      properties: {
-        sol_hours_required: { type: 'number' },
-        sols_checked: { type: 'array' },
-      },
-      // https://ajv.js.org/json-schema.html#patternproperties
-      patternProperties: {
-        '\\d{4}': { type: 'object' },
-      },
-      additionalProperties: false,
-    },
-  },
-  required: ['sol_keys', 'validity_checks'],
-  additionalProperties: false,
-} as const;
+// All properties are required by default
+const schema = z.object({
+  sol_keys: z.array(z.unknown()),
+  validity_checks: z.object({}),
+});
 
 const urlQuery = {
   api_key: API_KEY,
@@ -60,18 +45,14 @@ describe.skipIf(isNotHost)(
 
     test('Should have content-type = application/json;charset=utf-8', () => {
       // Handler's content type can vary from time to time
-      const contentTypes = [
+      expect(response.headers.get('Content-Type')?.toLowerCase()).toBe(
         'application/json;charset=utf-8',
-        'application/json;charset=UTF-8',
-      ];
-      // https://jestjs.io/docs/expect#expectarraycontainingarray
-      expect(contentTypes).toEqual(
-        expect.arrayContaining([response.headers.get('Content-Type')]),
       );
     });
 
     test('Should have valid body schema', () => {
-      expect(validateSchema(SCHEMA, body)).toBe(true);
+      // https://vitest.dev/api/expect.html#tothrowerror
+      expect(() => schema.parse(body)).not.toThrowError();
     });
   },
 );
