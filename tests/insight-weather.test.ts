@@ -1,10 +1,9 @@
+import { URLSearchParams } from 'url';
 import { beforeAll, describe, expect, test } from 'vitest';
 
 import { API_KEY, BEFORE_ALL_TIMEOUT, HOST } from '../utils/env';
 import { queryParams } from '../utils/query-params';
 import { validateSchema } from '../utils/schema-validator.js';
-
-import { URLSearchParams } from 'url';
 
 const SCHEMA = {
   type: 'object',

@@ -1,5 +1,5 @@
-import { beforeAll, describe, expect, test } from 'vitest';
 import { formatISO, subDays } from 'date-fns';
+import { beforeAll, describe, expect, test } from 'vitest';
 
 import { API_KEY, BEFORE_ALL_TIMEOUT, HOST } from '../utils/env';
 import { queryParams } from '../utils/query-params';
