@@ -1,32 +1,21 @@
 import { formatISO, subDays } from 'date-fns';
 import { beforeAll, describe, expect, test } from 'vitest';
+import { z } from 'zod';
 
 import { API_KEY, BEFORE_ALL_TIMEOUT, HOST } from '../utils/env';
 import { queryParams } from '../utils/query-params';
-import { validateSchema } from '../utils/schema-validator';
 
-const SCHEMA = {
-  type: 'object',
-  properties: {
-    copyright: { type: 'string' },
-    date: { type: 'string' },
-    explanation: { type: 'string' },
-    hdurl: { type: 'string' },
-    media_type: { type: 'string' },
-    service_version: { type: 'string' },
-    title: { type: 'string' },
-    url: { type: 'string' },
-  },
-  required: [
-    'date',
-    'explanation',
-    'media_type',
-    'service_version',
-    'title',
-    'url',
-  ],
-  additionalProperties: false,
-} as const;
+// All properties are required by default
+const schema = z.object({
+  copyright: z.string(),
+  date: z.string(),
+  explanation: z.string(),
+  hdurl: z.string(),
+  media_type: z.string(),
+  service_version: z.string(),
+  title: z.string(),
+  url: z.string(),
+});
 
 const now = new Date();
 
@@ -58,6 +47,7 @@ describe(`Request ${HOST}${ENDPOINT}?${queryParams(urlQuery)}`, () => {
   });
 
   test('Should have valid body schema', () => {
-    expect(validateSchema(SCHEMA, body)).toBe(true);
+    // https://vitest.dev/api/expect.html#tothrowerror
+    expect(() => schema.parse(body)).not.toThrowError();
   });
 });
