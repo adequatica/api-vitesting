@@ -19,14 +19,15 @@
   "type": "module",
   "dependencies": {
     "date-fns": "2.30.0",
-    "vitest": "0.34.6",
+    "vitest": "1.0.1",
     "zod": "3.22.4"
   },
   "devDependencies": {
     "@types/node-fetch": "2.6.9",
     "@typescript-eslint/eslint-plugin": "6.12.0",
     "@typescript-eslint/parser": "6.12.0",
-    "eslint": "8.54.0",
+    "@vitest/ui": "1.0.1",
+    "eslint": "8.55.0",
     "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "prettier": "3.1.0",
@@ -36,6 +37,7 @@
     "format": "npx prettier --write .",
     "lint": "eslint '**/*.{js,ts}'",
     "lint:fix": "eslint --fix '**/*.{js,ts}'",
-    "test": "vitest run --no-threads"
+    "test": "vitest run --pool=forks",
+    "test:ui": "vitest --ui"
   }
 }

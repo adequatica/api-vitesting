@@ -35,6 +35,10 @@ You have to have Node.js >= 21 in order to use `fetch()`.
 
 `npm test epic`
 
+- Run tests in [UI watch mode](https://vitest.dev/guide/ui.html):
+
+`npm run test:ui`
+
 ## Examples of Test Cases
 
 Tests replicate [API tests on Jest from this repository](https://github.com/adequatica/api-testing):
