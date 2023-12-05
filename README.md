@@ -2,6 +2,8 @@
 
 ## Stack
 
+This stack illustrates the article [API Testing with Vitest](https://medium.com/@adequatica/api-testing-with-vitest-391697942527).
+
 A basic set of packages to test API with TypeScript:
 
 - [Vitest](https://vitest.dev) — testing framework;
@@ -49,4 +51,4 @@ Tests replicate [API tests on Jest from this repository](https://github.com/adeq
 
 ---
 
-Сriticism of the stack: Zod is highly inconvenient as JSON schema validator in case of dynamic keys inside an object with other typed keys.
+Concerns of the stack: Zod is highly inconvenient as JSON schema validator in case of dynamic keys inside an object with other typed keys.
