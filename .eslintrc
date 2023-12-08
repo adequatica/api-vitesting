@@ -4,7 +4,7 @@
   "parserOptions": {
     "project": ["tsconfig.json"]
   },
-  "plugins": ["@typescript-eslint", "prettier", "simple-import-sort"],
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -14,7 +14,6 @@
     "@typescript-eslint/no-floating-promises": ["error"],
     // https://eslint.org/docs/latest/rules/comma-dangle#always-multiline
     "comma-dangle": ["error", "always-multiline"],
-    "prettier/prettier": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error"
   }
