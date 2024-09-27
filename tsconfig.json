@@ -1,5 +1,5 @@
 {
-  "include": ["tests", "utils", "./vitest.config.ts"],
+  "include": ["./vitest.config.ts", "esling.config.mjs", "tests", "utils"],
   "compilerOptions": {
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
