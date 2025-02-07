@@ -14,7 +14,7 @@
   "author": "Andrey Enin",
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=21"
   },
   "type": "module",
   "dependencies": {
