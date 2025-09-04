@@ -2,7 +2,7 @@
 
 ## Stack
 
-This stack illustrates the article [API Testing with Vitest](https://medium.com/@adequatica/api-testing-with-vitest-391697942527).
+This stack illustrates the article [API Testing with Vitest](https://adequatica.github.io/2023/12/04/api-testing-with-vitest.html).
 
 A basic set of packages to test API with TypeScript:
 
