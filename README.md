@@ -6,20 +6,20 @@ This stack illustrates the article [API Testing with Vitest](https://adequatica.
 
 A basic set of packages to test API with TypeScript:
 
-- [Vitest](https://vitest.dev) — testing framework;
-- Node.js [`fetch()`](https://nodejs.org/dist/latest-v21.x/docs/api/globals.html#fetch) as HTTP client;
-- [Zod](https://zod.dev) — schema validation;
-- [date-fns](https://date-fns.org) — modern date utility library;
-- [Prettier](https://prettier.io) — code formatter;
-- [ESLint](https://eslint.org/) – code linter.
+- [Vitest](https://vitest.dev) — testing framework
+- Node.js [`fetch()`](https://nodejs.org/dist/latest-v21.x/docs/api/globals.html#fetch) as HTTP client
+- [Zod](https://zod.dev) — schema validation
+- [date-fns](https://date-fns.org) — date utility library
+- [Prettier](https://prettier.io) — code formatter
+- [ESLint](https://eslint.org/) — code linter
 
-Example API for testing: [APOD NASA API](https://api.nasa.gov).
+Example API for testing: [NASA API](https://api.nasa.gov).
 
 ## How to Use
 
 You have to have Node.js >= 21 in order to use `fetch()`.
 
-1. Clone repository;
+1. Clone repository
 2. Install dependencies: `npm install`
 3. Run tests: `npm run test`
 
@@ -43,12 +43,10 @@ You have to have Node.js >= 21 in order to use `fetch()`.
 
 ## Examples of Test Cases
 
-Tests replicate [API tests on Jest from this repository](https://github.com/adequatica/api-testing):
+Tests replicate API tests on Jest [from this repository](https://github.com/adequatica/api-testing):
 
-- `apod.test.ts` — test with JSON schema validation;
-- `epic.test.ts` — test has [a loop through array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) for checking elements with [Chai](https://www.chaijs.com/api/bdd/) assertion;
-- `insight-weather.test.ts` — test will be conditionally [skipped](https://vitest.dev/api/#test-skip) in an inappropriate environment.
+- `apod.test.ts` — test with JSON schema validation
+- `epic.test.ts` — test has [a loop through array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) for checking elements with [Chai](https://www.chaijs.com/api/bdd/) assertion
+- `insight-weather.test.ts` — test will be conditionally [skipped](https://vitest.dev/api/#test-skip) in an inappropriate environment
 
----
-
-Concerns of the stack: Zod is highly inconvenient as JSON schema validator in case of dynamic keys inside an object with other typed keys.
+Concerns of the stack: Zod is an inconvenient JSON schema validator when there are dynamic keys inside an object with other typed keys.
